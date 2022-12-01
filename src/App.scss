@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    
+    body {
+        background-color:#FAF5EC;
+    }
+
+    .chart-components {
+        button {
+            border: none; 
+            background-color: #CEA152;
+            border-radius: 0.4em;
+            padding: 0.5em;
+            transition: all 400ms;
+            &:hover {
+                background-color: #000;
+                color: #CEA152;
+                scale: 115%;
+            }
+        }
+    }
+
+    .chart {
+        background-color:#FAF5EC;
+        padding: 1em;
+        width: 64vw;
+        height: 64vh;
+        position: absolute;
+        top: calc(50% - 20vh);
+        left: calc(50% - 32vw);
+        background: linear-gradient(145deg, #e1ddd4, #a79374);
+        box-shadow:  0.2em 0.2em 2em 0.2em #a79374,
+        -0.2em -0.2em 2em 0.2em #e1ddd4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+        border-radius: 1.5em;
+        opacity: 0;
+        canvas {
+            padding: 1em;
+        }
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            gap: 1em;
+            height: fit-content;
+            background-color: transparent;
+        }
+        button {
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #000;
+            color: #fff;
+        }
+
+        div {
+            height: 80%;
+            width: 100%;
+            background-color:#fffffffb;
+            border-radius: 1em;
+        }
+    }
+}
