@@ -30,7 +30,7 @@
             box-shadow: 0.2em 0.2em 0.1em 0.1em #cea15298,
                 -0.2em 0.2em 0.1em 0.1em #6e5e4298;;
             transition: all 400ms;
-            font-size: clamp(1em, 1vw, 1.5em); 
+            font-size: clamp(0.8em, 1vw, 1.5em); 
             &:hover {
                 color: #000;
                 background-color: #CEA152;
