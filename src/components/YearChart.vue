@@ -2,19 +2,20 @@
     import { Ref, ref, watch } from "vue";
     import { AnimeInstance } from "animejs";
     import { Bar, Pie } from "vue-chartjs";
+    import { TChartData } from "vue-chartjs/dist/types";
     import { chartUpdate, uniquePrizes, colors, uniqueYears } from "../composables/awardsData";
     import { animationIn, animationOut } from "../composables/animations";
 
-    type DatasetProps = {
-        label: string
-        data: string[]
-        backgroundColor: string[]
-    }
+    // type DatasetProps = {
+    //     label: string
+    //     data: string[]
+    //     backgroundColor: string[]
+    // }
 
-    type DataProp = {
-        labels: string[];
-        datasets: DatasetProps[]
-    }
+    // type DataProp = {
+    //     labels: string[];
+    //     datasets: DatasetProps[]
+    // }
     
     const props = defineProps([
         "chartOptions",
@@ -36,7 +37,7 @@
     });
 
     // Charts
-    let yearPieChart: Ref<boolean> = ref(true);
+    // let yearPieChart: Ref<boolean> = ref(true);
     let chosenYear: Ref<string> = ref('2019');
     const chartYear = ref();
 
@@ -46,11 +47,11 @@
         }
     } }
 
-    const changeYearChart: () => void = () => {
-        yearPieChart.value = !yearPieChart.value;
-    };
+    // const changeYearChart: () => void = () => {
+    //     yearPieChart.value = !yearPieChart.value;
+    // };
 
-    let yearData: DataProp = {
+    let yearData: TChartData<"pie", number[], unknown> = {
         labels: uniquePrizes,
         datasets: 
         [
@@ -62,7 +63,7 @@
         ],
     }
     const updateYear: () => void = () => {   
-        const newData: string[] = chartUpdate(chosenYear.value)
+        const newData: number[] = chartUpdate(chosenYear.value)
         chartYear.value.chart.data.datasets = [
             {
                 label: 'Laureates',
@@ -77,9 +78,9 @@
 
 <template>
   <div class="year-container chart" :class="{ year : props.active == 'year'}">
-    <button @click="changeYearChart">
+    <!-- <button @click="changeYearChart">
       {{ yearPieChart ? "Bar Chart" : "Pie Chart" }}
-    </button>
+    </button> -->
     <div class="headline">
         <h2>Category laureates per year</h2>
         <select v-model="chosenYear" @change="updateYear">
@@ -88,12 +89,12 @@
     </div>
     <Pie
       :chart-data="yearData"
-      v-if="yearPieChart"
+
       :chart-options="pieOptions"
       ref="chartYear"
     />
     
-    <Bar :chart-data="yearData" v-else :chart-options="props.chartOptions" ref="chartYear" />
+    <!-- <Bar :chart-data="yearData" v-else :chart-options="props.chartOptions" ref="chartYear" /> -->
   </div>
 </template>
 

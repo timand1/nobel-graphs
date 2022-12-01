@@ -88,10 +88,11 @@ for (const laureateObj of laureateYearCategory) {
   });
 }
 
-const chartUpdate: (year: string) => string[] = (year) => {
-  let updatedData: string[] = [];
+const chartUpdate: (year: string) => number[] = (year) => {
+  let updatedData: number[] = [];
   uniquePrizes.forEach((prize) => {
-    updatedData.push(yearData[prize as unknown as number][year]);
+    console.log(yearData[prize as unknown as number][year])
+    updatedData.push(parseInt(yearData[prize as unknown as number][year]));
   });
 
   return updatedData;
