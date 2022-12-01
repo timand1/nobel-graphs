@@ -3,7 +3,7 @@
     import { Line as LineChart, Bar } from "vue-chartjs";
     import { AnimeInstance } from "animejs";
     import { prizeYearData } from "../composables/awardsData";
-    import { animationIn, animationOut } from "../composables/animations";
+    import { animationIn, animationOut } from "../composables/chartAnimations";
 
     const props = defineProps([
     "chartOptions",

@@ -1,16 +1,17 @@
 import laureates from "../data/laureates.json";
-const colors: string[] = [
-  "Red",
-  "Blue",
-  "Green",
-  "Hotpink",
-  "Purple",
-  "Orange",
-  "Yellow",
-  "Steelblue",
-  "Lavender",
-  "gray",
-];
+type DatasetProps = {
+  label: string
+  data: number[]
+  backgroundColor: string[]
+  borderColor?: string[]
+  borderWidth?: number
+}
+
+type DataProp = {
+  labels: string[];
+  datasets: DatasetProps[]
+}
+const colors: string[] = ["Red", "Blue", "Green", "Hotpink", "Purple", "Orange", "Yellow", "Steelblue", "Lavender", "gray"];
 
 // Genders
 const genders: (string | undefined)[] = laureates
@@ -23,7 +24,7 @@ const unspecified: number = laureates
 const males: number = genders.filter((gender) => gender == "male").length;
 const females: number = genders.filter((gender) => gender == "female").length;
 
-const genderData = {
+const genderData: DataProp = {
   labels: ["Males", "Females", "Organisations"],
   datasets: [
     {
@@ -34,7 +35,7 @@ const genderData = {
         "rgb(54, 162, 235, 0.6)",
         "rgb(9, 126, 9)",
       ],
-      borderColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(9, 126, 9)"],
+      borderColor: colors,
       borderWidth: 1,
     },
   ],
@@ -64,7 +65,7 @@ uniquePrizes.forEach((uniquePrize) => {
   amountOfWinners.push(count);
 });
 
-const categoryLaureatesData = {
+const categoryLaureatesData: DataProp = {
   labels: uniquePrizes,
   datasets: [
     {
@@ -110,7 +111,7 @@ uniqueCountries.forEach((uniqueCountry) => {
 uniqueCountries.push("No data");
 amountOfCountryWinners.push(amountOfNoCountry);
 
-const countryData = {
+const countryData: DataProp = {
   labels: uniqueCountries,
   datasets: [
     {
@@ -144,7 +145,7 @@ winnersData.forEach((winner) => {
   }
 });
 
-const mostWinsData = {
+const mostWinsData: DataProp = {
   labels: allNames,
   datasets: [
     {

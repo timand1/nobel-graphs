@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import anime, {AnimeInstance} from 'animejs';
     import { onMounted } from 'vue';
-    import { landingAnim } from '../composables/animations'
+    import { landingAnim } from '../composables/landingPageAnimations'
     const emit = defineEmits(['showCharts'])
     
     let goToChart: AnimeInstance | null = null;

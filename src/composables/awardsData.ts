@@ -1,4 +1,14 @@
 import award from "../data/award.json";
+type DatasetProps = {
+  label: string
+  data: number[]
+  backgroundColor: string[]
+}
+
+type DataProp = {
+  labels: string[];
+  datasets: DatasetProps[]
+}
 
 // Prize
 type PrizeYear = {
@@ -43,7 +53,7 @@ const colors: string[] = [
   "Orange",
   "Yellow",
 ];
-const categoryData = {
+const categoryData: DataProp = {
   labels: uniquePrizes,
   datasets: [
     {
@@ -113,7 +123,7 @@ uniquePrizes.forEach((uniquePrize) => {
   amountOfWinners.push(amountLaureates);
 });
 
-const laureateData = {
+const laureateData: DataProp = {
   labels: uniquePrizes,
   datasets: [
     {

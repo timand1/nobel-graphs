@@ -3,7 +3,7 @@
     import { AnimeInstance } from "animejs";
     import { Bar, Doughnut } from "vue-chartjs";
     import { categoryData } from "../composables/awardsData";
-    import { animationIn, animationOut } from "../composables/animations";
+    import { animationIn, animationOut } from "../composables/chartAnimations";
 
     const props = defineProps([
         "chartOptions",

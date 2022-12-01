@@ -4,7 +4,7 @@
     import { Bar, Pie } from "vue-chartjs";
     import { TChartData } from "vue-chartjs/dist/types";
     import { chartUpdate, uniquePrizes, colors, uniqueYears } from "../composables/awardsData";
-    import { animationIn, animationOut } from "../composables/animations";
+    import { animationIn, animationOut } from "../composables/chartAnimations";
 
     const props = defineProps([
         "chartOptions",
@@ -69,9 +69,9 @@
             </select>
         </div>
         <Pie
-        :chart-data="yearData"
-        :chart-options="pieOptions"
-        ref="chartYear"
+            :chart-data="yearData"
+            :chart-options="pieOptions"
+            ref="chartYear"
         />
     </div>
 </template>
