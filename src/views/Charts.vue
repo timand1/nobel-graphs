@@ -156,7 +156,7 @@
                 
                 .navBtn {
                     border: none;
-                    width: 7vw;
+                    width: 10%;
                     padding: 1em;
                     height: 100%;
                     border-radius: 1em; 
@@ -167,12 +167,12 @@
                     box-shadow: 0.2em 0.2em 0.1em 0.1em #cea15298,
                         -0.2em 0.2em 0.1em 0.1em #cea15298;;
                     transition: all 400ms;
-                    font-size: clamp(1em, 1vw, 1.5em); 
+                    font-size: clamp(0.6em, 1vw, 1.5em); 
                     &:hover {
                         color: #000;
                         background-color: #CEA152;
                         height: 80%;
-                        width: 10vw;
+                        width: 14%;
                         padding: 0 2em;
                         box-shadow: 0.2em 0.2em 0.1em 0.1em #000, 
                             -0.2em 0.2em 0.1em 0.1em #000;
