@@ -6,17 +6,6 @@
     import { chartUpdate, uniquePrizes, colors, uniqueYears } from "../composables/awardsData";
     import { animationIn, animationOut } from "../composables/animations";
 
-    // type DatasetProps = {
-    //     label: string
-    //     data: string[]
-    //     backgroundColor: string[]
-    // }
-
-    // type DataProp = {
-    //     labels: string[];
-    //     datasets: DatasetProps[]
-    // }
-    
     const props = defineProps([
         "chartOptions",
         "active",
@@ -37,7 +26,6 @@
     });
 
     // Charts
-    // let yearPieChart: Ref<boolean> = ref(true);
     let chosenYear: Ref<string> = ref('2019');
     const chartYear = ref();
 
@@ -46,10 +34,6 @@
             display: false
         }
     } }
-
-    // const changeYearChart: () => void = () => {
-    //     yearPieChart.value = !yearPieChart.value;
-    // };
 
     let yearData: TChartData<"pie", number[], unknown> = {
         labels: uniquePrizes,
@@ -77,25 +61,19 @@
 </script>
 
 <template>
-  <div class="year-container chart" :class="{ year : props.active == 'year'}">
-    <!-- <button @click="changeYearChart">
-      {{ yearPieChart ? "Bar Chart" : "Pie Chart" }}
-    </button> -->
-    <div class="headline">
-        <h2>Category laureates per year</h2>
-        <select v-model="chosenYear" @change="updateYear">
-            <option v-for="year in uniqueYears" :key="year">{{year}}</option>
-        </select>
+    <div class="year-container chart" :class="{ year : props.active == 'year'}">
+        <div class="headline">
+            <h2>Category laureates per year</h2>
+            <select v-model="chosenYear" @change="updateYear">
+                <option v-for="year in uniqueYears" :key="year">{{year}}</option>
+            </select>
+        </div>
+        <Pie
+        :chart-data="yearData"
+        :chart-options="pieOptions"
+        ref="chartYear"
+        />
     </div>
-    <Pie
-      :chart-data="yearData"
-
-      :chart-options="pieOptions"
-      ref="chartYear"
-    />
-    
-    <!-- <Bar :chart-data="yearData" v-else :chart-options="props.chartOptions" ref="chartYear" /> -->
-  </div>
 </template>
 
 <style lang="scss" scoped>
