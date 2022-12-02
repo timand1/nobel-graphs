@@ -25,7 +25,8 @@
             </button>
             <button class="navBtn" :class="props.activeChart == 'countries' ? 'activeChart' : ''" @click="changeActiveChart('countries')">
                 Country
-            </button>           <button class="navBtn" :class="props.activeChart == 'category' ? 'activeChart' : ''" @click="changeActiveChart('category')">
+            </button>           
+            <button class="navBtn" :class="props.activeChart == 'category' ? 'activeChart' : ''" @click="changeActiveChart('category')">
                 Category
             </button>
             <button class="navBtn" :class="props.activeChart == 'laureatesCategory' ? 'activeChart' : ''" @click="changeActiveChart('laureatesCategory')">

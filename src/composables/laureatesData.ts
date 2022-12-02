@@ -3,8 +3,6 @@ type DatasetProps = {
   label: string
   data: number[]
   backgroundColor: string[]
-  borderColor?: string[]
-  borderWidth?: number
 }
 
 type DataProp = {
@@ -30,19 +28,12 @@ const genderData: DataProp = {
     {
       label: "Gender",
       data: [males, females, unspecified],
-      backgroundColor: [
-        "rgb(255, 99, 132, 0.6)",
-        "rgb(54, 162, 235, 0.6)",
-        "rgb(9, 126, 9)",
-      ],
-      borderColor: colors,
-      borderWidth: 1,
-    },
-  ],
+      backgroundColor: colors
+    }
+  ]
 };
 
 // Laureates per category
-
 const winsAll = laureates.map((x) => x.nobelPrizes);
 
 const allWinners: string[] = [];
@@ -77,39 +68,32 @@ const categoryLaureatesData: DataProp = {
 };
 
 // Countries
+const countryLaureates:string[] = laureates.map(winner => (
+  winner.birth 
+    ? winner.birth.place.country.en 
+    : winner.founded 
+      ? winner.founded.place.country 
+        ? winner.founded.place.country.en 
+        : 'No data' 
+      : 'No data'
+))
 
-let countryPersons: string[] = laureates
-  .filter((person) => person.birth != undefined)
-  .map((person) => (person?.birth ? person.birth.place.country.en : ""));
+countryLaureates.sort()
 
-const countryOrgs: string[] = laureates
-  .filter((org) => org.founded != undefined)
-  .map((org) => org?.founded?.place.country)
-  .filter((country) => country != undefined)
-  .map((org) => (org ? org.en : ""));
-
-const amountOfNoCountry: number =
-  laureates.length - (countryOrgs.length + countryPersons.length);
-const allCountries: string[] = [...countryPersons];
 const amountOfCountryWinners: number[] = [];
 
-countryOrgs.forEach((winner) => {
-  allCountries.push(winner);
-});
-const uniqueCountries: string[] = [...new Set(allCountries)];
+const uniqueCountries: string[] = [...new Set(countryLaureates)];
 uniqueCountries.sort();
 
 uniqueCountries.forEach((uniqueCountry) => {
   if (uniqueCountry) {
     let count = 0;
-    allCountries.forEach((country) => {
+    countryLaureates.forEach((country) => {
       uniqueCountry == country ? (count = count + 1) : null;
     });
     amountOfCountryWinners.push(count);
   }
 });
-uniqueCountries.push("No data");
-amountOfCountryWinners.push(amountOfNoCountry);
 
 const countryData: DataProp = {
   labels: uniqueCountries,
