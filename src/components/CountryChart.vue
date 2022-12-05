@@ -5,6 +5,14 @@
     import { countryData } from "../composables/laureatesData";
     import { animationIn, animationOut } from "../composables/chartAnimations";
     
+    type ChartOptions = {
+      [key: string] : boolean | SubChartOption
+    }
+
+    type SubChartOption = {
+      [key: string] : boolean | SubChartOption
+    }
+
     const props = defineProps([
         "chartOptions",
         "active",
@@ -24,11 +32,16 @@
         }
     });
 
-    let BarOptions = { responsive: true, maintainAspectRatio: false,  scales:{
+    let BarOptions: ChartOptions = { 
+      responsive: true, 
+      maintainAspectRatio: false,  
+      scales: {
         x: {
             display: false
         }
-    } }
+      } 
+    }
+
 </script>
 
 <template>

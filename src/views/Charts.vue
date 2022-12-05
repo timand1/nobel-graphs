@@ -28,7 +28,7 @@
     onMounted(fadeInAnimContainer)
 
     const changeActiveChart: (chart: string) => void = (chart) => {      
-        prevActiveChart.value =  activeChart.value        
+        prevActiveChart.value =  activeChart.value
         activeChart.value = chart
     }
 

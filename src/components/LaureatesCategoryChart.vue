@@ -5,6 +5,14 @@
     import { categoryLaureatesData, mostWinsData } from "../composables/laureatesData";
     import { animationIn, animationOut } from "../composables/chartAnimations";
 
+    type ChartOptions = {
+      [key: string] : boolean | SubChartOption
+    }
+
+    type SubChartOption = {
+      [key: string] : boolean | SubChartOption
+    }
+
     const props = defineProps([
     "chartOptions",
     "active",
@@ -27,18 +35,21 @@
     let laureatesCategoryPieChart: Ref<boolean> = ref(true);
     let mostWins: Ref<boolean> = ref(false);
 
-    let pieOptions = { responsive: true, maintainAspectRatio: false,  scales:{
+    let pieOptions: ChartOptions = { 
+      responsive: true, 
+      maintainAspectRatio: false,  
+      scales: {
         x: {
             display: false
         }
-    } }
+      } 
+    }
 
     const changelaureatesCategoryChart: () => void = () => {
       laureatesCategoryPieChart.value = !laureatesCategoryPieChart.value;
     };
 
-    const showMostWins: () => void = () => {
-      
+    const showMostWins: () => void = () => {      
       mostWins.value = !mostWins.value
     }
 

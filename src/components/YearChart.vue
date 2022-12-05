@@ -1,10 +1,18 @@
 <script setup lang="ts">
     import { Ref, ref, watch } from "vue";
     import { AnimeInstance } from "animejs";
-    import { Bar, Pie } from "vue-chartjs";
+    import { Pie } from "vue-chartjs";
     import { TChartData } from "vue-chartjs/dist/types";
     import { chartUpdate, uniquePrizes, colors, uniqueYears } from "../composables/awardsData";
     import { animationIn, animationOut } from "../composables/chartAnimations";
+
+    type ChartOptions = {
+      [key: string] : boolean | SubChartOption
+    }
+
+    type SubChartOption = {
+      [key: string] : boolean | SubChartOption
+    }
 
     const props = defineProps([
         "chartOptions",
@@ -29,11 +37,15 @@
     let chosenYear: Ref<string> = ref('2019');
     const chartYear = ref();
 
-    let pieOptions = { responsive: true, maintainAspectRatio: false,  scales:{
+    let pieOptions: ChartOptions = { 
+      responsive: true, 
+      maintainAspectRatio: false,  
+      scales: {
         x: {
             display: false
         }
-    } }
+      } 
+    }
 
     let yearData: TChartData<"pie", number[], unknown> = {
         labels: uniquePrizes,

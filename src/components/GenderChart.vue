@@ -5,6 +5,14 @@
     import { genderData } from "../composables/laureatesData";
     import { animationIn, animationOut } from "../composables/chartAnimations";
     
+    type ChartOptions = {
+      [key: string] : boolean | SubChartOption
+    }
+
+    type SubChartOption = {
+      [key: string] : boolean | SubChartOption
+    }
+
     const props = defineProps([
         "chartOptions",
         "active",
@@ -39,11 +47,16 @@
 
     // Charts
     let genderPieChart: Ref<boolean> = ref(true);
-    let pieOptions = { responsive: true, maintainAspectRatio: false,  scales:{
-    x: {
-        display: false
+
+      let pieOptions: ChartOptions = { 
+      responsive: true, 
+      maintainAspectRatio: false,  
+      scales: {
+        x: {
+            display: false
+        }
+      } 
     }
-  }}
 
     const changeGenderChart: () => void = () => {
     genderPieChart.value = !genderPieChart.value;
