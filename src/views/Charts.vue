@@ -8,12 +8,19 @@
     import CountryChart from '../components/CountryChart.vue'
     import YearChart from '../components/YearChart.vue'
     import {slideAnim, slideBtnAnim, fadeInAnim, slideDownNavAnim, fadeInAnimContainer } from '../composables/chartViewAnimations'
+    type Options = {
+        responsive: boolean,
+        maintainAspectRatio: boolean
+    }
 
+    let chartOptions : Options = { 
+        responsive: true, 
+        maintainAspectRatio: false
+    }
+    
     let activeChart: Ref<string> = ref('gender')
     let prevActiveChart: Ref<string> = ref('gender')
     let animationType: Ref<string> = ref('fade')
-    let chartOptions = { responsive: true, maintainAspectRatio: false }
-
     onMounted(slideAnim)
     onMounted(fadeInAnim)
     onMounted(slideBtnAnim)
