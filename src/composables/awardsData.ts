@@ -10,7 +10,7 @@ type DataProp = {
   datasets: DatasetProps[]
 }
 
-// Prize
+// ******************************************* Prize *******************************************
 type PrizeYear = {
   awardYear: string[];
   prizeAmount: number[];
@@ -29,7 +29,7 @@ const prizeYearData: PrizeYear = {
   prizeAmountAdjusted: prizeAmountAdjusted,
 };
 
-// Category
+// ******************************************* Category *******************************************
 const categories: string[] = award.map((awardData) => awardData.category.en);
 
 const uniquePrizes: string[] = [...new Set(categories)];
@@ -64,7 +64,7 @@ const categoryData: DataProp = {
   ],
 };
 
-// Year
+// ******************************************* Year *******************************************
 
 type LaurateYearObj = {
   year: string;
@@ -107,7 +107,7 @@ const chartUpdate: (year: string) => number[] = (year) => {
   return updatedData;
 };
 
-// total laureates per category
+// ******************************************* total laureates per category *******************************************
 const amountOfWinners: number[] = [];
 uniquePrizes.forEach((uniquePrize) => {
   let amountLaureates: number = 0;

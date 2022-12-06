@@ -11,7 +11,7 @@ type DataProp = {
 }
 const colors: string[] = ["Red", "Blue", "Green", "Hotpink", "Purple", "Orange", "Yellow", "Steelblue", "Lavender", "gray"];
 
-// Genders
+// ******************************************* Genders *******************************************
 const genders: (string | undefined)[] = laureates
   .filter((x) => x.gender != undefined)
   .map((laureate) => laureate.gender);
@@ -33,7 +33,7 @@ const genderData: DataProp = {
   ]
 };
 
-// Laureates per category
+// ******************************************* Laureates per category *******************************************
 const winsAll = laureates.map((x) => x.nobelPrizes);
 
 const allWinners: string[] = [];
@@ -67,7 +67,7 @@ const categoryLaureatesData: DataProp = {
   ],
 };
 
-// Countries
+// ******************************************* Countries *******************************************
 const countryLaureates:string[] = laureates.map(winner => (
   winner.birth 
     ? winner.birth.place.country.en 
@@ -106,7 +106,7 @@ const countryData: DataProp = {
   ],
 };
 
-// Most wins
+// ******************************************* Most wins *******************************************
 type WinnerObj = {
   name: string;
   wins: number;
