@@ -25,7 +25,7 @@ const animationIn: (
       duration: 1000,
       opacity: [0, 1],
       scale: [0, 1],
-      easing: "linear",
+      easing: "easeInOutBack",
       delay: 1000,
     });
   } else if (type == "spin") {
@@ -80,7 +80,7 @@ const animationOut: (
       targets: target,
       duration: 1000,
       opacity: [1, 0],
-      easing: "linear",
+      easing: "easeInOutBack",
       delay: 0,
     });
   } else if (type == "grow") {
