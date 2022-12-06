@@ -5,6 +5,20 @@
     import { prizeYearData } from "../composables/awardsData";
     import { animationIn, animationOut } from "../composables/chartAnimations";
 
+    type DatasetProps = {
+      label: string
+      data: number[]
+      backgroundColor: string,
+      borderWidth: number,
+      borderColor: string,
+      pointBorderWidth: number
+    }
+
+    type DataProp = {
+      labels: string[];
+      datasets: DatasetProps[]
+    }
+
     const props = defineProps([
     "chartOptions",
     "active",
@@ -37,7 +51,7 @@
     prizeCompare.value = false
     };
 
-    let prizeData = {
+    let prizeData: DataProp = {
     labels: prizeYearData.awardYear,
     datasets: [
         {
@@ -50,7 +64,7 @@
         },
     ],
     };
-    let adjustedPrizeData = [
+    let adjustedPrizeData: DatasetProps[] = [
     {
         label: "Prize Adjusted (SEK)",
         data: awardPrizeData.prizeAmountAdjusted,
