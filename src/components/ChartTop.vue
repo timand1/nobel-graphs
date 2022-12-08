@@ -39,11 +39,11 @@
         <div class="animations">
             <p class="sub-headline">Pick animations</p>
             <div class="anim-type">
-                <p class="fade" :class="props.animationType == 'fade' ? 'activeAnim' : ''" @click="changeAnimation('fade')">Fade</p>
-                <p class="grow" :class="props.animationType == 'grow' ? 'activeAnim' : ''" @click="changeAnimation('grow')">Grow</p>
-                <p class="spin" :class="props.animationType == 'spin' ? 'activeAnim' : ''" @click="changeAnimation('spin')">Spin</p>
-                <p class="bounce" :class="props.animationType == 'bounce' ? 'activeAnim' : ''" @click="changeAnimation('bounce')">Bounce</p>
-                <p class="slide" :class="props.animationType == 'slide' ? 'activeAnim' : ''" @click="changeAnimation('slide')">Rotate</p>
+                <p :class="props.animationType == 'fade' ? 'activeAnim' : ''" @click="changeAnimation('fade')">Fade</p>
+                <p :class="props.animationType == 'grow' ? 'activeAnim' : ''" @click="changeAnimation('grow')">Grow</p>
+                <p :class="props.animationType == 'spin' ? 'activeAnim' : ''" @click="changeAnimation('spin')">Spin</p>
+                <p :class="props.animationType == 'bounce' ? 'activeAnim' : ''" @click="changeAnimation('bounce')">Bounce</p>
+                <p :class="props.animationType == 'slide' ? 'activeAnim' : ''" @click="changeAnimation('slide')">Rotate</p>
             </div>
         </div>
     </div>
